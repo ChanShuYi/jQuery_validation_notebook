@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<title>表单模块</title>
+    <link rel="stylesheet" href="css/reset.css"> 
+    <link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+	<form id="demo" name="demo" class="m-form">
+         <div class="normalInput">
+            <input id="username" name="username" type="text" placeholder="用户名">
+         </div>
+         <div class="normalInput">
+            <input id="email" name="email" type="text" placeholder="常用邮箱">
+         </div>
+         <div class="normalInput">
+            <input class="ignore" id="address" name="address" type="text" placeholder="居住地址">
+         </div>
+         <div id="tips" class="tips">提示信息</div>   
+         <button class="btn">提&nbsp;交</button>
+    </form>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script> 
+    var validator = $("#demo").validate({ 
+    		//设置验证规则
+	    	rules:{ 
+	                   username:{ 
+	                        required: true 
+	                   },
+	                   email:{
+	                        required: true,
+	                        email: true
+	                   },
+	                   address:{
+	                        required: true
+	                   }
+	            },
+	         //设置提示信息
+             messages: {
+                    username:{ 
+                        required: "用户名不能为空" 
+                   },
+                   email:{
+                        required: "邮箱不能为空",
+                        email: "邮箱格式错误"
+                   },
+                   address:{
+                        required: function(rule, form){
+                            return "地址不能为空";
+                        }
+                   }
+            }, 
+            errorPlacement: function(error, element) {
+                var msg = error.text();
+                console.log(msg);
+                $("#tips").html(msg);
+                console.log("***********"); 
+            }         
+        });
+    </script>
+</body>
+</html>

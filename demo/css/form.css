@@ -1,0 +1,80 @@
+body{
+    background-color: gray;
+}
+
+input{
+    /* 内部字体 */
+    box-sizing: border-box; /* 元素长度等于width属性宽度 */
+    font-size: 15px;
+    padding: 5px 15px;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+/*
+ * 表单模块
+ */
+/* 表单宽度 */
+.m-form{
+    width: 80%;  
+    margin: 45% auto;
+}
+/* 行高度,间距 */
+.m-form .normalInput, .m-form .validcodeInput, .m-form .phoneInput, .m-form .genderInput{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 15px; 
+} 
+/* input元素属性 */
+.m-form .normalInput input{
+    width: 100%;
+    height: 100%;
+}
+/* 公用的按钮样式，去除了宽度 */
+.m-form .btn{
+    height: 40px;
+    background-color: white;
+    /* 内部字体 */
+    font: bold 16px "SimSun" ;
+    text-align: center;
+    border-radius: 5px;
+} 
+/* 提交按钮 */
+.m-form button{
+    width: 100%; /* 单独设置按钮宽度 */
+}
+/* 发送验证码行 */ 
+.validcodeInput input{ 
+    width: 50%;
+    height: 40px;
+    margin-right: 5%;
+}
+/* 发送验证码按钮 */
+.validcodeInput button{  
+    width: 42%;
+    height: 40px; 
+}
+.m-form .tips{ 
+    margin-left: 10px;
+    margin-bottom: 15px;
+    font: bold 15px/22px "SimSun";
+    color: #f00;
+}
+/* 电话号码 */
+.phoneInput #phonePrefix{
+    width: 30%;
+    height: 40px;
+    margin-right: 5%;
+}
+
+.phoneInput #phoneNum{
+    width: 63%;
+    height: 40px;
+}
+
+/* 性别 */
+.genderInput #male, .genderInput #female{
+    width: 30px; 
+}
+
+
