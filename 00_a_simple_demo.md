@@ -8,14 +8,12 @@ jQuery Validation 是一个基于`jQuery`的表单验证插件，它封装了常
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-	<title>表单模块</title>
-    <link rel="stylesheet" href="css/reset.css"> 
-    <link rel="stylesheet" href="css/form.css">
+    <meta charset="UTF-8">
+    <title>jQuery Validation 简单Demo</title> 
 </head>
 <body>
-	<form id="demo" name="demo" class="m-form">
+    <h1>jQuery Validation 简单Demo</h1>
+    <form id="demo" name="demo" class="m-form">
          <div class="normalInput">
             <input id="username" name="username" type="text" placeholder="用户名">
          </div>
@@ -24,27 +22,27 @@ jQuery Validation 是一个基于`jQuery`的表单验证插件，它封装了常
          </div>
          <div class="normalInput">
             <input class="ignore" id="address" name="address" type="text" placeholder="居住地址">
-         </div>
-         <div id="tips" class="tips">提示信息</div>    
+         </div>  
+         <button class="btn">提&nbsp;交</button>
     </form>
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script> 
     var validator = $("#demo").validate({ 
-    		//设置验证规则
-	    	rules:{ 
-	                   username:{ 
-	                        required: true 
-	                   },
-	                   email:{
-	                        required: true,
-	                        email: true
-	                   },
-	                   address:{
-	                        required: true
-	                   }
-	            },
-	         //设置提示信息
+            //设置验证规则
+            rules:{ 
+                       username:{ 
+                            required: true 
+                       },
+                       email:{
+                            required: true,
+                            email: true
+                       },
+                       address:{
+                            required: true
+                       }
+                },
+             //设置提示信息
              messages: {
                     username:{ 
                         required: "用户名不能为空" 
@@ -52,16 +50,21 @@ jQuery Validation 是一个基于`jQuery`的表单验证插件，它封装了常
                    email:{
                         required: "邮箱不能为空",
                         email: "邮箱格式错误"
+                   },
+                   address:{
+                        required: function(rule, form){
+                            return "地址不能为空";
+                        }
                    }
-            }  
+            }        
         });
     </script>
 </body>
-</html> 
+</html>
 ```
 
 上面有用户名和邮箱字段，并设置了用户名和邮箱都不能为空，并且邮箱要符合邮箱格式。并且为每种错误情况都设置了对应的自定义提示信息。其中：
 
 - `rules`选项表示设置规则，`messages`表示设置自定义提示信息。 
 
-你可以在[这里](demo/00_a_simple_demo.html)看到这个Demo。
+你可以在[这里](http://chanshuyi.github.io/jquery_validation_notebook/demo/00_a_simple_demo.html)看到这个Demo。
