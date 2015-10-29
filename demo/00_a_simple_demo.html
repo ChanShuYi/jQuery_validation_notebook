@@ -2,10 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-	<title>表单模块</title>
-    <link rel="stylesheet" href="css/reset.css"> 
-    <link rel="stylesheet" href="css/form.css">
+	<title>jQuery Validation 简单Demo</title> 
 </head>
 <body>
 	<form id="demo" name="demo" class="m-form">
@@ -17,8 +14,7 @@
          </div>
          <div class="normalInput">
             <input class="ignore" id="address" name="address" type="text" placeholder="居住地址">
-         </div>
-         <div id="tips" class="tips">提示信息</div>   
+         </div>  
          <button class="btn">提&nbsp;交</button>
     </form>
     <script src="js/jquery.min.js"></script>
@@ -52,13 +48,7 @@
                             return "地址不能为空";
                         }
                    }
-            }, 
-            errorPlacement: function(error, element) {
-                var msg = error.text();
-                console.log(msg);
-                $("#tips").html(msg);
-                console.log("***********"); 
-            }         
+            }        
         });
     </script>
 </body>
